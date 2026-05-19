@@ -1,39 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="description" content="YOLO26-KSD: Kidney Stone Detection and Segmentation with RAG-based Radiology Report Generation">
+  <meta name="keywords" content="Kidney Stone, YOLO, Segmentation, RAG, Radiology Report, Deep Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <title>YOLO26-KSD: Kidney Stone Detection and Segmentation</title>
+  <meta property="og:title" content="YOLO26-KSD: Kidney Stone Detection and Segmentation">
+  <meta property="og:description" content="Automated kidney stone detection and segmentation using YOLO-26 with RAG-based radiology report generation.">
+  <meta property="og:image" content="./static/images/teaser.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -42,132 +25,74 @@
 </head>
 <body>
 
+<!-- NAViGASYON -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </a>
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
+        <a class="navbar-link">Sections</a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#qualitative">Qualitative Results</a>
+          <a class="navbar-item" href="#quantitative">Quantitative Results</a>
+          <a class="navbar-item" href="#BibTeX">BibTeX</a>
         </div>
       </div>
     </div>
-
   </div>
 </nav>
 
 
+<!-- 1. HEADER -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">
+            Kidney Stone Detection and Segmentation using YOLO-26<br>
+            and Radiology Report Generation with RAG Pipeline
+          </h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-            </span>
+            <span class="author-block"><a href="#">Cihangir Emre</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Tuna K&ouml;m&uuml;r</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Furkan G&ouml;z</a><sup>1</sup></span>
           </div>
-
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Kocaeli &Uuml;niversitesi, Bilgisayar M&uuml;hendisli&#287;i B&ouml;l&uuml;m&uuml;</span>
           </div>
-
+          <div class="is-size-6 publication-authors" style="margin-top:0.5rem;">
+            <span class="author-block" style="color:#555;">Bitirme Projesi &mdash; 2025</span>
+          </div>
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Report PDF</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-rocket"></i></span><span>Live Demo</span>
                 </a>
               </span>
-              <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span><span>Dataset</span>
+                </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -175,311 +100,207 @@
   </div>
 </section>
 
+
+<!-- 2. TEASER -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+      <div style="background:#f0f0f0;height:400px;display:flex;align-items:center;justify-content:center;border-radius:8px;">
+        <span style="color:#999;font-size:1.2rem;">[ Teaser G&ouml;rseli / Videosu ]</span>
+      </div>
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        YOLO-26 tabanl&#305; modelimiz CT g&ouml;r&uuml;nt&uuml;lerinden b&ouml;brek ta&#351;lar&#305;n&#305; otomatik tespit ederek
+        segmente etmekte ve RAG pipeline&#39;&#305; arac&#305;l&#305;&#287;&#305;yla klinisyene haz&#305;r radyoloji raporu &uuml;retmektedir.
       </h2>
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
+<!-- 3. ABSTRACT -->
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            B&ouml;brek ta&#351;lar&#305;, d&uuml;nya genelinde yayg&#305;n g&ouml;r&uuml;len ve erken tan&#305; konulmad&#305;&#287;&#305;nda ciddi
+            komplikasyonlara yol a&ccedil;abilen &uuml;rolojik bir rahats&#305;zl&#305;kt&#305;r. Bilgisayarl&#305; tomografi (CT)
+            g&ouml;r&uuml;nt&uuml;leri tan&#305; i&ccedil;in alt&#305;n standart olmakla birlikte, manuel inceleme zaman al&#305;c&#305;
+            ve uzmana ba&#287;&#305;ml&#305; bir s&uuml;re&ccedil;tir.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            Bu &ccedil;al&#305;&#351;mada, CT g&ouml;r&uuml;nt&uuml;lerinde b&ouml;brek ta&#351;lar&#305;n&#305; otomatik olarak tespit etmek ve
+            segmente etmek i&ccedil;in YOLO-26 mimarisi &uuml;zerine kurulu bir derin &ouml;&#287;renme sistemi sunuyoruz.
+            Modelimiz, nesne tespiti ve piksel d&uuml;zeyinde segmentasyonu ayn&#305; anda ger&ccedil;ekle&#351;tirerek
+            klinisyenlere ta&#351;&#305;n konumu, boyutu ve &scaron;ekli hakk&#305;nda hassas bilgi sa&#287;lamaktad&#305;r.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Sisteme entegre etti&#287;imiz Retrieval-Augmented Generation (RAG) pipeline&#39;&#305; ise segmentasyon
+            &ccedil;&#305;kt&#305;lar&#305;n&#305; ve hasta ba&#287;lam&#305;n&#305; kullanarak yap&#305;land&#305;r&#305;lm&#305;&scaron; radyoloji raporlar&#305; otomatik olarak
+            &uuml;retmektedir. Kocaeli &Uuml;niversitesi veri seti &uuml;zerinde y&uuml;r&uuml;t&uuml;len deneyler, &ouml;nerilen
+            yakla&scaron;&#305;m&#305;n mevcut baseline y&ouml;ntemlerini hem tespit do&#287;rulu&#287;u hem de rapor kalitesi
+            a&ccedil;&#305;s&#305;ndan ge&ccedil;ti&#287;ini ortaya koymaktad&#305;r.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
+<!-- 4. METHOD / PIPELINE -->
+<section class="section" id="method">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <div style="background:#f0f0f0;height:320px;display:flex;align-items:center;justify-content:center;border-radius:8px;margin-bottom:1.5rem;">
+          <span style="color:#999;font-size:1.2rem;">[ Pipeline / Sistem Diyagram&#305; ]</span>
+        </div>
         <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+          <p><strong>Ad&#305;m 1 &mdash; &Ouml;n &#304;&scaron;leme:</strong> CT dilimleri pencere normalleştirmesi ve g&uuml;r&uuml;lt&uuml; azaltma uyguland&#305;ktan sonra modele beslenmek &uuml;zere 640x640 piksel boyutuna yeniden &ouml;rneklenir.</p>
+          <p><strong>Ad&#305;m 2 &mdash; Tespit ve Segmentasyon (YOLO-26):</strong> &Ouml;zelle&scaron;tirilmi&scaron; YOLO-26 omurgas&#305;, tek ge&ccedil;i&scaron;te s&#305;n&#305;rlay&#305;c&#305; kutular&#305; ve piksel maskelerini e&scaron; zamanl&#305; olarak tahmin eder. &Ccedil;ok &ouml;l&ccedil;ekli &ouml;zellik birle&scaron;tirme, k&uuml;&ccedil;&uuml;k ta&scaron;lar&#305;n ka&ccedil;&#305;r&#305;lmas&#305;n&#305; &ouml;nler.</p>
+          <p><strong>Ad&#305;m 3 &mdash; Post-processing:</strong> NMS (Non-Maximum Suppression) ile &ccedil;ak&#305;&scaron;an tahminler elenir; morfolojik operasyonlarla maske s&#305;n&#305;rlar&#305; iyile&scaron;tirilir.</p>
+          <p><strong>Ad&#305;m 4 &mdash; RAG Pipeline:</strong> Segmentasyon meta verisi (konum, boyut, HU yo&#287;unlu&#287;u) bir retrieval mod&uuml;l&uuml;yle ilgili klinik bilgi par&ccedil;alar&#305;yla zenginle&scaron;tirilir ve dil modeline aktar&#305;larak yap&#305;land&#305;r&#305;lm&#305;&scaron; radyoloji raporu &uuml;retilir.</p>
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
 
+<!-- 5. QUALITATIVE RESULTS -->
+<section class="section" id="qualitative">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+    <p class="has-text-centered" style="margin-bottom:1.5rem;">Input CT &rarr; Baseline Segmentasyon &rarr; YOLO-26-KSD Segmentasyon</p>
+
+    <div class="columns is-centered" style="margin-bottom:2rem;">
+      <div class="column has-text-centered">
+        <div style="background:#e8e8e8;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#999;">Input CT</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Giri&scaron; G&ouml;r&uuml;nt&uuml;s&uuml;</p>
+      </div>
+      <div class="column has-text-centered">
+        <div style="background:#e8e8e8;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#999;">Baseline</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Baseline (YOLOv8)</p>
+      </div>
+      <div class="column has-text-centered">
+        <div style="background:#d4edda;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#555;">YOLO-26-KSD</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Bizim Y&ouml;ntemimiz</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <div style="background:#e8e8e8;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#999;">Input CT</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Zor Vaka (K&uuml;&ccedil;&uuml;k Ta&scaron;)</p>
+      </div>
+      <div class="column has-text-centered">
+        <div style="background:#f8d7da;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#721c24;">Baseline (Miss)</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Baseline &mdash; Ka&ccedil;&#305;r&#305;ld&#305;</p>
+      </div>
+      <div class="column has-text-centered">
+        <div style="background:#d4edda;height:220px;display:flex;align-items:center;justify-content:center;border-radius:6px;">
+          <span style="color:#555;">YOLO-26-KSD &#10003;</span>
+        </div>
+        <p class="is-size-7" style="margin-top:0.4rem;">Bizim Y&ouml;ntemimiz &mdash; Tespit Edildi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 6. QUANTITATIVE RESULTS -->
+<section class="section" id="quantitative" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    <div class="content">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Y&ouml;ntem</th><th>mAP@50</th><th>mAP@50-95</th><th>Precision</th><th>Recall</th><th>F1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>YOLOv8-seg (Baseline)</td>
+            <td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>YOLOv11-seg</td>
+            <td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
+          </tr>
+          <tr style="font-weight:bold;background:#e8f5e9;">
+            <td>YOLO-26-KSD (Ours)</td>
+            <td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="is-size-7 has-text-grey has-text-centered">
+        Tablo: Kocaeli &Uuml;niversitesi CT veri seti &uuml;zerinde test sonu&ccedil;lar&#305;. De&#287;erler tamamland&#305;k&ccedil;a g&uuml;ncellenecektir.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 7. BIBTEX -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@thesis{emre2025yolo26ksd,
+  author  = {Emre, Cihangir and Komur, Tuna},
+  advisor = {Goz, Furkan},
+  title   = {Kidney Stone Detection and Segmentation using YOLO-26
+             and Radiology Report Generation with RAG Pipeline},
+  school  = {Kocaeli Universitesi, Bilgisayar Muhendisligi Bolumu},
+  year    = {2025},
+  type    = {Bitirme Projesi},
 }</code></pre>
   </div>
 </section>
 
 
+<!-- 8. ACKNOWLEDGEMENTS -->
+<section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-4">Acknowledgements</h2>
+    <p>
+      Bu &ccedil;al&#305;&scaron;ma, Kocaeli &Uuml;niversitesi Bilgisayar M&uuml;hendisli&#287;i B&ouml;l&uuml;m&uuml; b&uuml;nyesinde ger&ccedil;ekle&scaron;tirilmi&scaron;tir.
+      Dan&#305;&scaron;man deste&#287;i i&ccedil;in <strong>Furkan G&ouml;z</strong>'e, veri sa&#287;lama s&uuml;recinde katk&#305;lar&#305; i&ccedil;in
+      ilgili klinik personele te&scaron;ekk&uuml;r ederiz.
+    </p>
+    <p>Sayfa &scaron;ablonu <a href="https://nerfies.github.io">Nerfies</a> projesinden uyarlanm&#305;&scaron;t&#305;r.</p>
+  </div>
+</section>
+
+
+<!-- 9. FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
+      <a class="icon-link" href="#"><i class="fas fa-file-pdf"></i></a>
+      <a class="icon-link" href="#"><i class="fab fa-github"></i></a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Bu web sitesi <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> lisans&#305; alt&#305;ndad&#305;r.
           </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+          <p>Sayfa &scaron;ablonu <a href="https://nerfies.github.io">Nerfies</a> projesinden uyarlanm&#305;&scaron;t&#305;r.</p>
         </div>
       </div>
     </div>
